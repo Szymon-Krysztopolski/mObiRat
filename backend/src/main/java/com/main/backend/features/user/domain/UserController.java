@@ -30,14 +30,21 @@ public class UserController {
 
     @GetMapping("/test")
     public User getTestUser() {
+        return userService.getUser(fixedUserId);
+    }
+
+    @GetMapping("/bloodDemands")
+    public Integer getBloodDemands() { // todo fix
         User user = userService.getUser(fixedUserId);
 
-        Integer bloodDemands = rckikService
-                .getRckikByName(user.getRckikCity())
-                .getBloodDemands()
-                .checkBloodDemands(user.getBloodGroup());
+        Integer bloodDemands = null;
+        try {
+            bloodDemands = rckikService
+                    .getRckikByName(user.getRckikCity())
+                    .getBloodDemands()
+                    .checkBloodDemands(user.getBloodGroup());
+        } catch (Exception ignored) {}
 
-        user.setBloodDemands(bloodDemands);
-        return user;
+        return bloodDemands;
     }
 }
