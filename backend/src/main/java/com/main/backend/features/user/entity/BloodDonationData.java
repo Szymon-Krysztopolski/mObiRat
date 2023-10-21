@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @Embeddable
 public class BloodDonationData {
-    private String bloodGroup;
+    private BloodGroup bloodGroup;
     private String facility;
     private Date donationDate;
 

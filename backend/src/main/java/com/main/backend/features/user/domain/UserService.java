@@ -28,4 +28,9 @@ public class UserService {
 
         return String.format("User %d created!", fixedUserId);
     }
+
+    public String deleteUser() {
+        repository.deleteById(fixedUserId);
+        return String.format("User %d deleted!", fixedUserId);
+    }
 }
