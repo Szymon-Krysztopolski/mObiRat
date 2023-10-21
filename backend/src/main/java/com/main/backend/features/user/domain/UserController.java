@@ -1,9 +1,7 @@
 package com.main.backend.features.user.domain;
 
-import com.main.backend.features.city.domain.CityService;
-import com.main.backend.features.user.entity.BloodDonationData;
+import com.main.backend.features.rckik.domain.RckikService;
 import com.main.backend.features.user.entity.User;
-import com.main.backend.features.user.pojo.Details;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,37 +10,34 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final Long fixedUserId = 749219421L;
     UserService userService;
-    CityService cityService;
+    RckikService rckikService;
 
     @Autowired
-    public UserController(UserService userService, CityService cityService) {
+    public UserController(UserService userService, RckikService rckikService) {
         this.userService = userService;
-        this.cityService = cityService;
+        this.rckikService = rckikService;
     }
 
     @PostMapping("/create")
-    public String createUser(@RequestBody BloodDonationData bloodDonationData) {
-        return userService.createUser(fixedUserId, bloodDonationData);
+    public String createUser(@RequestBody User user) {
+        return userService.createUser(fixedUserId, user);
     }
 
     @DeleteMapping("/delete")
-    public String deleteUser(Long userId) {
-        return userService.deleteUser(userId);
+    public String deleteUser() {
+        return userService.deleteUser(fixedUserId);
     }
 
     @GetMapping("/test")
-    public Details getUserData() {
+    public User getTestUser() {
         User user = userService.getUser(fixedUserId);
-        Integer bloodDemands = cityService
-                .getCityByName(user
-                        .getBloodDonationData()
-                        .getFacility()
-                )
-                .getBloodType()
-                .mapBloodEnumToValue(user
-                        .getBloodDonationData()
-                        .getBloodGroup()
-                );
-        return new Details(user, bloodDemands);
+
+        Integer bloodDemands = rckikService
+                .getRckikByName(user.getRckikCity())
+                .getBloodDemands()
+                .checkBloodDemands(user.getBloodGroup());
+
+        user.setBloodDemands(bloodDemands);
+        return user;
     }
 }

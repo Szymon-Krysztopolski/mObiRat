@@ -1,4 +1,4 @@
-package com.main.backend.features.city.entity;
+package com.main.backend.features.rckik.entity;
 
 import com.main.backend.features.user.entity.BloodGroup;
 import jakarta.persistence.*;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class BloodType {
+public class BloodDemands {
     private int ZERO_RH_UJEMNY;
     private int ZERO_RH_DODATNI;
     private int A_RH_UJEMNY;
@@ -22,7 +22,7 @@ public class BloodType {
     private int AB_RH_UJEMNY;
     private int AB_RH_DODATNI;
 
-    public int mapBloodEnumToValue(BloodGroup bloodGroup) {
+    public int checkBloodDemands(BloodGroup bloodGroup) {
         int value = 0;
         switch (bloodGroup) {
             case ZERO_RH_UJEMNY -> value = ZERO_RH_UJEMNY;

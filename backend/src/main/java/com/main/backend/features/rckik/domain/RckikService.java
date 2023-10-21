@@ -1,26 +1,26 @@
-package com.main.backend.features.city.domain;
+package com.main.backend.features.rckik.domain;
 
-import com.main.backend.features.city.entity.City;
+import com.main.backend.features.rckik.entity.Rckik;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CityService {
+public class RckikService {
 
-    private final CityRepository repository;
+    private final RckikRepository repository;
 
     @Autowired
-    public CityService(CityRepository repository) {
+    public RckikService(RckikRepository repository) {
         this.repository = repository;
     }
 
-    public City getCityByName(String name) {
+    public Rckik getRckikByName(String name) {
         return repository.findById(name).orElseThrow(null);
     }
 
-    public List<City> getAllCities() {
+    public List<Rckik> getAllRckik() {
         return repository.findAll();
     }
 }
