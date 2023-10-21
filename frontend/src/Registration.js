@@ -102,7 +102,7 @@ export class Registration extends React.Component {
                 <div className='BloodInfo-text'>Wybierz swoją placówkę</div>
                 <select value={this.state.selectedCity} onChange={this.handleSelectChangeCity}>
                   {Array.isArray(this.state.cities) && this.state.cities.map(item => (
-                    <option key={item.id} value={item.fullName}>{item.fullName}</option>
+                    <option key={item.id} value={item.city}>{item.fullName}</option>
                   ))}
                 </select>
               </div>

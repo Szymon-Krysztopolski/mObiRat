@@ -157,3 +157,59 @@ hr{
     align-items: center;
     
 }
+
+.notifications-area2{
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px #EFF4FA;
+    width: 353px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.not-head{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    margin-top: 17px;
+    justify-content: space-around;
+}
+.notifications-details{
+}
+#arrow-rotate{
+    rotate: 90deg;
+}
+.row-not1{
+    display: flex;
+    padding:5px;
+}
+
+.row-not2{
+    display: flex;
+    padding:5px;
+}
+
+.row-not3{
+    display: flex;
+    padding:5px;
+}
+
+.row-not-text{
+    padding-left: 10px;
+}
+
+#select1{
+    width: 94px;
+    height: 29px;
+}
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+}
+
+input[type='checkbox']:checked {
+    background-color: #007BFF;
+}
