@@ -1,4 +1,4 @@
-package com.main.backend.features.database.entity;
+package com.main.backend.features.city.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
