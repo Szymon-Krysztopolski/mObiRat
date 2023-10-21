@@ -37,13 +37,14 @@ export class UserPanel extends React.Component {
             </div>
           </div>
           <div className='header2'>
-            <div className='blood-container'><img src='krew_l1.png' className='blood'></img>
+            <div className='blood-container'>
+            {this.state.hidden ? <img src='krew_l1.png' className='blood'></img> : <img src='krew_l1.png' className='blood2'></img> }
               <div className='blood-text'>AB Rh+</div>
 
             </div>
             <div className='text-area'>
               <div className='t1'>pilna potrzeba krwi</div>
-              <div className='t2'>Aktualne zapotrzebowanie w regionie Poznań</div>
+              <Link to='/needs'><div className='t2'>Aktualne zapotrzebowanie w regionie Poznań</div></Link>
             </div>
 
           </div>

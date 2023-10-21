@@ -22,6 +22,11 @@
     width: 60px;    
 }
 
+.blood2{
+    align-self: center;
+    width: 40px;    
+}
+
 select{
     margin-left: 15px;
     border: 1px solid #DDD;
@@ -47,8 +52,8 @@ a {
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    padding-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 .blood-text{
@@ -187,7 +192,7 @@ hr{
     background: #FFF;
     box-shadow: 0px 2px 10px 0px #EFF4FA;
     width: 353px;
-    height: 260px;
+    height: 240px;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -228,7 +233,7 @@ hr{
     color: #4A4A4A;
 }
 
-row-not-text2 {
+.row-not-text2 {
     margin-left: 5px;
     color: #4A4A4A;
 }
@@ -239,6 +244,7 @@ row-not-text2 {
 }
 input[type='checkbox'] {
     width: 20px;
+    min-width: 20px;
     height: 20px;
     background-color: #eee;
     padding-right: 2px;
