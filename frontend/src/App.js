@@ -7,9 +7,9 @@ import axios from 'axios';
 export class App extends React.Component {
     componentDidMount() {
         const fetchData = () => {
-            axios.get('http://127.0.0.1:8080/get-notification')
+            axios.get('http://127.0.0.1:8080/api/get-notification')
                 .then(response => {
-                    toast.success(response.data, {
+                    response.data && toast.success(response.data, {
                         position: toast.POSITION.TOP_CENTER
                     });
                 })

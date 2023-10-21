@@ -1,4 +1,4 @@
-package com.main.backend.features.notification.pojo;
+package com.main.backend.features.notification.firebase.pojo;
 
 import lombok.Data;
 
