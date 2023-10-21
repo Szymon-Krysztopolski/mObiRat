@@ -10,6 +10,11 @@
     position: absolute;    
     margin-top: 25px;
 }
+
+a {
+    text-decoration: none;
+}
+
 .title{
     color: #1D1D1D;
     text-align: center;

@@ -61,11 +61,11 @@
     font-family: Roboto;
     font-size: 14px;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 .content{
-    margin-top: 40px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
 }

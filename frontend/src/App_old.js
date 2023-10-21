@@ -3,7 +3,6 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 export class App extends React.Component {
     componentDidMount() {
@@ -31,25 +30,25 @@ export class App extends React.Component {
             <div className="App">
                 <ToastContainer />
                 <div id='rectangle'>
-                    <img src="Landing_1.png" id='logo'></img>
-                    <div id='object-container'>
-                        <Link to='/welcome'>
-                        <div id='object-tile'>
-                            <img src="tile_krew.png" id='icon'></img>
-                            <p id='object-text'>mDawca</p>
-                        </div>
-                        </Link>
-                        <div id='object-tile'>
-                            <img src="tile-bus.png" id='icon'></img>
-                            <p id='object-text'>mPociąg</p>
-                        </div>
-                        <div id='object-tile'>
-                            <img src="tile-srodowisko.png" id='icon'></img>
-                            <p id='object-text'>mLas</p>
+                    <div id='jk'></div>
+                    <div id='dokumenty-wszystkie'>
+                        <div id='dokumenty'>Dokumenty</div>
+                        <div id='dodaj'>Dodaj</div>
+                        <div id='wszystkie'>Wszystkie</div>
+                    </div>
+                    <div id='dynamic-panel'>
+                        <img src="normal_u25.svg" id='image'></img>
+                    </div>
+                    <div id='usługi-wszystkie'>
+                        <div id='punkty karne'>
+                            <div id='group'>
+
+                            </div>
+                            <div id='punkty-karne2'>
+                                Punkty karne
+                            </div>
                         </div>
                     </div>
-                    <img src="Landing_2.png" id='logo'></img>
-                    
                 </div>
             </div>
         );
