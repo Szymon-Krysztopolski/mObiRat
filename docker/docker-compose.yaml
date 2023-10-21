@@ -1,0 +1,10 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - ./educat-docker:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
