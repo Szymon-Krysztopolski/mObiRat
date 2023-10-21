@@ -37,4 +37,17 @@ public class BloodDemands {
 
         return value;
     }
+
+    public static BloodDemands exampleData() {
+        return new BloodDemands(
+                4,
+                2,
+                1,
+                3,
+                1,
+                2,
+                0,
+                2
+        );
+    }
 }

@@ -77,8 +77,8 @@ export class Info extends React.Component {
                   <li>które w ciągu ostatnich 6 miesięcy nie były leczone krwią i preparatami krwiopochodnymi.</li>
                 </ul>
               </div>
-            
             </Collapsible>
+            <hr></hr>
             <Collapsible trigger="Co należy zrobić przed oddaniem krwi?">
             <ul>
               <li>dzień przed oddaniem krwi pij dużo płynów (najlepiej niegazowanej wody mineralnej),</li>
@@ -89,9 +89,11 @@ export class Info extends React.Component {
               <li>zaplanuj dzień, w którym chcesz oddać krew. Sprawdź, w jakie dni i w jakich godzinach jest czynne centrum lub punkt, w którym chcesz oddać krew (możesz to zrobić także podczas akcji wyjazdowych mobilnych punktów pobierania krwi – tzw. krwiobusów).</li>
             </ul>
             </Collapsible>
+            <hr></hr>
             <Collapsible trigger="Jak zgłosić się do oddania krwi?">
               <p>W tym celu nie musisz nic robić. Znajdź najbliższy poboru korzystając z wyszukiwarki poniżej i udaj się tam w dogodnym terminie zgodnym z godzinami przyjęć. Najaktualniejsze informacje możesz uzyskać na stronie Twojego Regionalnego Centrum.</p>
             </Collapsible>
+            <hr></hr>
             <Collapsible trigger="Co przysługuje dawcom krwi?">
               <div>
               <ul>
