@@ -37,7 +37,7 @@ export class UserPanel extends React.Component {
             </div>
           </div>
           <div className='header2'>
-            <div className='blood'><img src='krew_l1.png'></img>
+            <div className='blood-container'><img src='krew_l1.png' className='blood'></img>
               <div className='blood-text'>AB Rh+</div>
 
             </div>

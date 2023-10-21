@@ -10,6 +10,24 @@
     position: absolute;    
     margin-top: 25px;
 }
+.blood-container {
+    height: 70px;
+    width: 67px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.blood{
+    align-self: center;
+    width: 60px;    
+}
+
+select{
+    margin-left: 15px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    padding-left: 10px;
+}
 
 a {
     text-decoration: none;
@@ -29,13 +47,15 @@ a {
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top: 23px;
+    margin-top: 10px;
+    padding-bottom: 5px;
 }
 
 .blood-text{
     color: #1D1D1D;
     font-family: Roboto;
     font-size: 14px;
+    text-align: center;
 }
 
 .t1{
@@ -67,6 +87,10 @@ a {
     justify-content: space-around;
 }
 
+.notifications-details {
+    padding-top: 15px;
+}
+
 .notification-text{
     color: #1D1D1D;
     font-family: Roboto;
@@ -83,7 +107,7 @@ a {
     display: flex;
     align-self: center;
     flex-direction: column;
-    margin-top: 22px;
+    margin-top: 10px;
 }
 .data-information-title{
     color: #1D1D1D;
@@ -138,7 +162,7 @@ hr{
 }
 
 .button-rows3{
-    margin-top: 130px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,7 +187,7 @@ hr{
     background: #FFF;
     box-shadow: 0px 2px 10px 0px #EFF4FA;
     width: 353px;
-    height: 300px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -187,17 +211,26 @@ hr{
 }
 
 .row-not2{
-    display: flex;
     padding:5px;
+    display: flex;
+    gap: 3px;
 }
 
 .row-not3{
     display: flex;
     padding:5px;
+    gap: 3px;
 }
 
 .row-not-text{
+    margin-left: 5px;
     padding-left: 10px;
+    color: #4A4A4A;
+}
+
+row-not-text2 {
+    margin-left: 5px;
+    color: #4A4A4A;
 }
 
 #select1{
@@ -208,8 +241,9 @@ input[type='checkbox'] {
     width: 20px;
     height: 20px;
     background-color: #eee;
+    padding-right: 2px;
 }
 
 input[type='checkbox']:checked {
-    background-color: #007BFF;
+    background-color: #76ee59;
 }
