@@ -1,5 +1,112 @@
 .App {
     display: flex;
     height: 100vh;
-    background-color: #282c34;;
+    background-color: #282c34;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #rectangle {
+    width: 393px;
+    height: 851px;
+    background-color: #f4f6fb;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #jk {
+    width: 393px;
+    height: 64px;
+    background-color: #ffffff;
+  }
+
+  #dokumenty-wszystkie {
+    width: 393px;
+    height: 44px;
+    background-color: #ffffff;
+  }
+  #dokumenty {
+    width: 94px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: "Roboto-Medium", "Roboto Medium", "Roboto", sans-serif;
+    font-weight: 500;
+    color: #1d1d1d;
+    text-align: left;
+    line-height: normal;
+    letter-spacing: 0.2px;
+  }
+
+  #dodaj {
+    width: 76px;
+    height: 32px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 34px;
+    background-color: #dbeaf9;
+    box-sizing: border-box;
+    font-family: "Roboto-Regular", "Roboto", sans-serif;
+    color: #014a93;
+    text-align: center;
+    line-height: 19px;
+    letter-spacing: 0.2px;
+  }
+
+  #wszystkie {
+    width: 100px;
+    height: 32px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 34px;
+    background-color: #dbeaf9;
+    box-sizing: border-box;
+    font-family: "Roboto-Regular", "Roboto", sans-serif;
+    color: #014a93;
+    text-align: center;
+    line-height: 19px;
+    letter-spacing: 0.2px;
+  }
+
+  #dynamic-panel {
+    width: 373px;
+    height: 202px;
+    padding: 2px 2px 2px 2px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+  }
+
+  #image {
+    width: 320px;
+    height: 200px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.04);
+  }
+
+  #usługi-wszystkie {
+    width: 393px;
+    height: 44px;
+    background-color: #ffffff;
+  }
+
+  #punkty-karne {
+    width: 106px;
+    height: 117px;
+    background-color: #ffffff;
+  }
+
+  #group {
+    width: 72px;
+    height: 72px;
+    background-color: #ffffff;
+  }
+
+  #punkty-karne {
+    width: 106px;
+    height: 37px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: "Roboto-Regular", "Roboto", sans-serif;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: normal;
   }
