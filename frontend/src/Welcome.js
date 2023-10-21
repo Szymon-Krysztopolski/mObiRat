@@ -7,6 +7,7 @@ export class Welcome extends React.Component{
     return (
       <div className="App">
         <div id='rectangle'>
+        <img className='arrow-back' src='normal_u20_1.svg'></img>
           <div className='header'>
             <div className='title'>
               mDawca
@@ -31,10 +32,14 @@ export class Welcome extends React.Component{
           </div>
           <div className='button-rows'>
             <div className='button-row'>
-              <div className='text-in-button'>Dowiedz się więcej</div>
+              <div className='text-in-button'>
+                Dowiedz się więcej
+              </div>
             </div>
             <div className='button-row'>
-              <div className='text-in-button'>Jesteś już dawcą?<br></br>Dodaj swoje dane</div>
+              <div className='text-in-button'>
+                Jesteś już dawcą?<br></br>Dodaj swoje dane
+              </div>
             </div>
           </div>
         </div>
