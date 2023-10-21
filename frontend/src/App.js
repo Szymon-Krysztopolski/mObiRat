@@ -29,8 +29,10 @@ export class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <ToastContainer />
                 <div id='rectangle'>
+                    <div style={{position: "absolute"}}>
+                        <ToastContainer style={{position: "relative"}} />
+                    </div>
                     <img src="Landing_1.png" id='logo'></img>
                     <div id='object-container'>
                         <Link to='/welcome'>
