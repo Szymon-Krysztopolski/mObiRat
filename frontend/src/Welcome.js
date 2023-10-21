@@ -22,7 +22,7 @@ export class Welcome extends React.Component{
             <img className='blood-in-circle' src='Logo-kafelek1.svg'></img>
           </div>
           <div className='title-context'>Twoje krwiodawstwo w jednym miejscu</div>
-          <div className='subtitle-context'>Znajdziesz tu informacje o aktualnych <br></br>zapotrzebowaniach na krew w Twoim regionie</div>
+          <div className='subtitle-context'>Znajdziesz tu informacje o:</div>
           <div className='content'>
             <div className='content-row'>
               <img id='content-img' src='krew4.png'></img>
@@ -31,6 +31,11 @@ export class Welcome extends React.Component{
             <div className='content-row'>
               <img id='content-img' src='10931691.svg'></img>
               <div className='picture-describe'>lokalizacji najbliższych punktów poboru krwi</div>
+            </div>
+            <div className='content-row'>
+              <img id='content-img' src='notification-bell-red.svg'></img>
+              <div className='picture-describe'>przypomnieniach o możliwości oddania krwi <br></br>
+               nagłych zapotrzebowaniach na pomoc</div>
             </div>
           </div>
           <div className='button-rows'>

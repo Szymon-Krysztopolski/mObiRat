@@ -43,6 +43,10 @@
     
 }
 
+a {
+    text-decoration: none;
+}
+
 .BloodInfo-text{
     color: #1D1D1D;
     margin-left: 20px;
