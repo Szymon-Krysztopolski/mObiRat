@@ -1,5 +1,6 @@
 package com.main.backend.features.database.domain;
 
+import com.main.backend.features.database.pojo.BloodTypeData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ public class DatabaseController {
     }
 
     @GetMapping("/test")
-    public String test() {
-        return "OK!";
+    public BloodTypeData test() {
+        return BloodTypeData.getTestObject();
     }
 }
