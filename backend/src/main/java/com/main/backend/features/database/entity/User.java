@@ -6,10 +6,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 
+import java.util.Date;
+
 @Getter
 @Entity
 @Table(name="users")
 public class User {
     private @Id @GeneratedValue Long userId;
-    private String firstName, lastName;
+    private String cityName;
+    private Date date;
 }

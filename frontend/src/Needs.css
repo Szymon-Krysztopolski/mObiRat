@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'), url('./fonts/Roboto-Medium.ttf') format('truetype');
+  }
+.arrow-back{
+    margin-left: 22px;
+    height: 17px;
+    width: 20px;
+    align-items: center;
+    position: absolute;    
+    margin-top: 25px;
+}
+.title{
+    color: #1D1D1D;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    justify-content: center;
+}
+
+.header{
+    width: 393px;
+    height: 24px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 23px;
+}
+
