@@ -1,17 +1,13 @@
 package com.main.backend.features.user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.Embeddable;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-@Entity
+@Embeddable
 public class BloodDonationData {
-    @Id
-    private Long id;
-
     private String bloodGroup;
     private String facility;
     private Date donationDate;

@@ -1,8 +1,9 @@
 package com.main.backend.features.user.domain;
 
+import com.main.backend.features.user.entity.BloodDonationData;
+import com.main.backend.features.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -12,5 +13,15 @@ public class UserController {
     @Autowired
     public UserController(UserService service) {
         this.service = service;
+    }
+
+    @PostMapping("/create")
+    public String createUser(@RequestBody BloodDonationData bloodDonationData) {
+        return service.createUser(bloodDonationData);
+    }
+
+    @GetMapping("/test")
+    public User getTestUser() {
+        return service.getUser();
     }
 }
