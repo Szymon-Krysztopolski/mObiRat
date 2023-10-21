@@ -1,13 +1,16 @@
 import './Welcome.css';
 import './App.css'
 import React from 'react';
+import {Link } from 'react-router-dom';
 
 export class Welcome extends React.Component{
   render(){
     return (
       <div className="App">
         <div id='rectangle'>
-        <img className='arrow-back' src='normal_u20_1.svg'></img>
+          <Link to='/'>
+            <img className='arrow-back' src='normal_u20_1.svg'></img>
+          </Link>
           <div className='header'>
             <div className='title'>
               mDawca
@@ -31,16 +34,20 @@ export class Welcome extends React.Component{
             </div>
           </div>
           <div className='button-rows'>
+            <Link to='/info'>
             <div className='button-row'>
               <div className='text-in-button'>
                 Dowiedz się więcej
               </div>
             </div>
-            <div className='button-row'>
-              <div className='text-in-button'>
-                Jesteś już dawcą?<br></br>Dodaj swoje dane
+            </Link>
+            <Link to='/registration'>
+              <div className='button-row'>
+                <div className='text-in-button'>
+                  Jesteś już dawcą?<br></br>Dodaj swoje dane
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
