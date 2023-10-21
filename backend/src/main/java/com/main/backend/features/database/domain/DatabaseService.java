@@ -1,4 +1,4 @@
-package com.main.backend.features.database;
+package com.main.backend.features.database.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

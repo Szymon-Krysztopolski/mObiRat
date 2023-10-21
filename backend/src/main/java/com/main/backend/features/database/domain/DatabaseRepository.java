@@ -1,4 +1,4 @@
-package com.main.backend.features.database;
+package com.main.backend.features.database.domain;
 
 import com.main.backend.features.database.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
