@@ -6,6 +6,7 @@ import Welcome from './Welcome';
 import Info from './Info';
 import Registration from './Registration';
 import UserPanel from './UserPanel';
+import Map from './Map';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,7 @@ root.render(
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/user-panel" element={<UserPanel />} />
+        <Route path="/map" element={<Map />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
