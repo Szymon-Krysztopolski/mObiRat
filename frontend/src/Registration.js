@@ -4,7 +4,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-
 export class Registration extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,6 @@ export class Registration extends React.Component {
     this.setState({ selectedCity: event.target.value });
   }
 
-
   render() {
     const bloodGroups = [
       { id: 'zero_RH_UJEMNY', name: '0 Rh-' },
@@ -52,7 +50,7 @@ export class Registration extends React.Component {
     return (
       <div className="App">
         <div id='rectangle'>
-          <img className='arrow-back'  src='normal_u20_1.svg'></img>
+          <img className='arrow-back' onClick={() => window.history.back()} src='normal_u20_1.svg'></img>
           <div className='header'>
 
             <div className='title'>
@@ -82,7 +80,7 @@ export class Registration extends React.Component {
                 <input id='date-input' type='date'></input>
               </div>
             </div>
-            <div><div className='button-rows'>
+            <div><div className='button-rows2'>
               <Link to='/user-panel'>
                 <div className='button-row'>
                   <div className='text-in-button'>
