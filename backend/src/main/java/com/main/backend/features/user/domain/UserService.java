@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private final Long fixedUserId = 749219421L;
     private final UserRepository repository;
 
     @Autowired
@@ -15,22 +14,22 @@ public class UserService {
         this.repository = repository;
     }
 
-    public User getUser() {
-        return repository.findById(fixedUserId).orElseThrow();
+    public User getUser(Long userId) {
+        return repository.findById(userId).orElseThrow();
     }
 
-    public String createUser(BloodDonationData bloodDonationData) {
+    public String createUser(Long userId, BloodDonationData bloodDonationData) {
         User user = User.builder()
-                .userId(fixedUserId)
+                .userId(userId)
                 .bloodDonationData(bloodDonationData)
                 .build();
         repository.saveAndFlush(user);
 
-        return String.format("User %d created!", fixedUserId);
+        return String.format("[%s] User's options updated!", userId);
     }
 
-    public String deleteUser() {
-        repository.deleteById(fixedUserId);
-        return String.format("User %d deleted!", fixedUserId);
+    public String deleteUser(Long userId) {
+        repository.deleteById(userId);
+        return String.format("[%d] User's options deleted!", userId);
     }
 }
