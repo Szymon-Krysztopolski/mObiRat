@@ -1,4 +1,4 @@
-INSERT INTO cities (Name, RCKiK, Address, zip_code_city, Phone, Website, ZERO_RH_UJEMNY, ZERO_RH_DODATNI, A_RH_UJEMNY, A_RH_DODATNI, B_RH_UJEMNY, B_RH_DODATNI, AB_RH_UJEMNY, AB_RH_DODATNI) VALUES
+INSERT INTO rckik (city, full_name, address, zip_code_city, phone, website, ZERO_RH_UJEMNY, ZERO_RH_DODATNI, A_RH_UJEMNY, A_RH_DODATNI, B_RH_UJEMNY, B_RH_DODATNI, AB_RH_UJEMNY, AB_RH_DODATNI) VALUES
 ('Bialystok', 'RCKiK w Białymstoku', 'ul. Marii Sklodowskiej-Curie 23', '15-950 Bialystok', 'tel. (85) 744 70 02', 'www.rckik.bialystok.pl', 5, 3, 3, 3, 5, 4, 4, 2),
 ('Bydgoszcz', 'RCKiK w Bydgoszczy', 'ul. Ks. Markwarta 8', '85-015 Bydgoszcz', 'tel. (52) 322 18 71 do 74', 'www.rckik-bydgoszcz.com.pl', 1, 2, 5, 4, 5, 3, 3, 4),
 ('Gdansk', 'RCKiK w Gdańsku', 'ul. J. Hoene-Wronskiego 4', '80-210 Gdansk', 'tel. (58) 520 40 20', 'www.krew.gdansk.pl', 4, 5, 4, 3, 1, 2, 2, 4),

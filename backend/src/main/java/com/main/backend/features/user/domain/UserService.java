@@ -1,13 +1,12 @@
 package com.main.backend.features.user.domain;
 
-import com.main.backend.features.user.entity.BloodDonationData;
+import com.main.backend.features.user.entity.BloodGroup;
 import com.main.backend.features.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private final Long fixedUserId = 749219421L;
     private final UserRepository repository;
 
     @Autowired
@@ -15,22 +14,28 @@ public class UserService {
         this.repository = repository;
     }
 
-    public User getUser() {
-        return repository.findById(fixedUserId).orElseThrow();
+    public User getUser(Long id) {
+        return repository.findById(id).orElseThrow(null);
     }
 
-    public String createUser(BloodDonationData bloodDonationData) {
-        User user = User.builder()
+    public String createUser(Long fixedUserId, User user) {
+        User newUser = User.builder()
                 .userId(fixedUserId)
-                .bloodDonationData(bloodDonationData)
+                .bloodGroup((user.getBloodGroup() == null ? BloodGroup.AB_RH_DODATNI : user.getBloodGroup()))
+                .rckikCity((user.getRckikCity() == null ? "Poznan" : user.getRckikCity()))
+                .donationDate(user.getDonationDate())
+                .notificationPermission(user.isNotificationPermission())
+                .notificationEmergencyDemand(user.isNotificationEmergencyDemand())
+                .notificationAvailability(user.isNotificationAvailability())
+                .notificationFrequency(user.getNotificationFrequency())
                 .build();
-        repository.saveAndFlush(user);
+        repository.saveAndFlush(newUser);
 
-        return String.format("User %d created!", fixedUserId);
+        return String.format("[%s] User's details updated!", user.getUserId());
     }
 
-    public String deleteUser() {
-        repository.deleteById(fixedUserId);
-        return String.format("User %d deleted!", fixedUserId);
+    public String deleteUser(Long id) {
+        repository.deleteById(id);
+        return String.format("[%d] User's details deleted!", id);
     }
 }

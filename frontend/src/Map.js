@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LoadingScreen from "./LoadingScreen";
 import "./Map.css";
+import { Link } from 'react-router-dom';
 
 class Map extends Component {
 
@@ -34,12 +35,11 @@ class Map extends Component {
 
   render() {
     const { latitude, longitude, errorMessage } = this.state;
-
+    
     return (
       <div className="App">
         <div id="rectangle">
-
-          <img className="arrow-back" src="normal_u20_1.svg" alt="arrow-back" />
+          <img className="arrow-back" src="normal_u20_1.svg" alt="arrow-back" onClick={() => window.history.back()}/>
           <div className="header">
             <div className="title">mDawca</div>
           </div>
@@ -53,10 +53,11 @@ class Map extends Component {
                 // </p>
                 <div className="content">
                 <iframe
+                  className="map"
                   src = {`https://www.google.com/maps/d/embed?mid=142nqMIgmK3tCarABCmdvq8MHGlNZZPMB&ehbc=2E312F&ll=${latitude},${longitude}&z=10`}
                   width = "100%"
                   height = "100%"
-                  margin = "5px"
+                  margin-top = "-150px"
                   title = "Google Map"
                   allowFullScreen
                 ></iframe>

@@ -3,10 +3,9 @@ package com.main.backend.features.user.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.Date;
 
 @Getter
 @Builder
@@ -16,5 +15,16 @@ import lombok.NoArgsConstructor;
 @Table(name="users")
 public class User {
     private @Id Long userId;
-    private BloodDonationData bloodDonationData;
+
+    private BloodGroup bloodGroup;
+    private String rckikCity; // String -> Rckik @OneToOne
+    private Date donationDate;
+
+    private boolean notificationPermission;
+    private boolean notificationEmergencyDemand;
+    private boolean notificationAvailability;
+    private Integer notificationFrequency;
+
+    @Setter
+    private Integer bloodDemands;
 }

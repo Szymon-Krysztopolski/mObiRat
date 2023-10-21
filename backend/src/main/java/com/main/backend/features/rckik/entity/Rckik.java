@@ -1,4 +1,4 @@
-package com.main.backend.features.city.entity;
+package com.main.backend.features.rckik.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,19 +13,19 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cities")
-public class City {
+@Table(name = "rckik")
+public class Rckik {
     @Id
-    private String name;
-    private String rckik, address, zipCodeCity, phone, website;
-    private BloodType bloodType;
+    private String city;
+    private String fullName, address, zipCodeCity, phone, website;
+    private BloodDemands bloodDemands;
 
-    public static City getTestObject() {
-        return City.builder()
-                .name("Poznan")
-                .rckik("RCkiK w Poznaniu")
-                .bloodType(
-                        BloodType.builder()
+    public static Rckik getTestObject() {
+        return Rckik.builder()
+                .city("Poznan")
+                .fullName("RCkiK w Poznaniu")
+                .bloodDemands(
+                        BloodDemands.builder()
                                 .ZERO_RH_UJEMNY(1)
                                 .ZERO_RH_DODATNI(2)
                                 .A_RH_UJEMNY(3)
