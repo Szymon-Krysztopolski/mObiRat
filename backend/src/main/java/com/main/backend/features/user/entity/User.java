@@ -24,7 +24,4 @@ public class User {
     private boolean notificationEmergencyDemand;
     private boolean notificationAvailability;
     private Integer notificationFrequency;
-
-    @Setter
-    private Integer bloodDemands;
 }
