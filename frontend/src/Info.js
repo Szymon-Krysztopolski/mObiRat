@@ -11,7 +11,7 @@ export class Info extends React.Component {
     this.state = {
       needs: null
     };
-    fetch('http://localhost:8080/api/test', {
+    fetch('http://localhost:8080/api/city/test', {
       method: 'GET'
     })
       .then(response => response.json())
@@ -20,19 +20,20 @@ export class Info extends React.Component {
       })
   }
   render() {
-    var miasto = "Wrocław";
-    // TODO miasto
+    var miasto =null;
+    if(this.state.needs!==null){
+       miasto=this.state.needs.name;
+    }
+    
     if (this.state.needs !== null) {
-      console.log(this.state.needs);
-      console.log(this.state.needs.a_RH_DODATNI)
-      var aRHP = "krew_l" + this.state.needs.a_RH_DODATNI + ".png"
-      var aRHM = "krew_l" + this.state.needs.a_RH_UJEMNY + ".png"
-      var bRHP = "krew_l" + this.state.needs.b_RH_DODATNI + ".png"
-      var bRHM = "krew_l" + this.state.needs.b_RH_UJEMNY + ".png"
-      var zRHP = "krew_l" + this.state.needs.zero_RH_DODATNI + ".png"
-      var zRHM = "krew_l" + this.state.needs.zero_RH_UJEMNY + ".png"
-      var abRHP = "krew_l" + this.state.needs.ab_RH_DODATNI + ".png"
-      var abRHM = "krew_l" + this.state.needs.ab_RH_UJEMNY + ".png"
+      var aRHP = "krew_l" + this.state.needs.bloodType.a_RH_DODATNI + ".png"
+      var aRHM = "krew_l" + this.state.needs.bloodType.a_RH_UJEMNY + ".png"
+      var bRHP = "krew_l" + this.state.needs.bloodType.b_RH_DODATNI + ".png"
+      var bRHM = "krew_l" + this.state.needs.bloodType.b_RH_UJEMNY + ".png"
+      var zRHP = "krew_l" + this.state.needs.bloodType.zero_RH_DODATNI + ".png"
+      var zRHM = "krew_l" + this.state.needs.bloodType.zero_RH_UJEMNY + ".png"
+      var abRHP = "krew_l" + this.state.needs.bloodType.ab_RH_DODATNI + ".png"
+      var abRHM = "krew_l" + this.state.needs.bloodType.ab_RH_UJEMNY + ".png"
       console.log(aRHP)
     }
 
@@ -48,7 +49,7 @@ export class Info extends React.Component {
               mDawca
             </div>
           </div>
-          <div className='title-context'>Aktualne zapotrzebowanie w Twoim<br></br>regionie - {miasto}</div>
+          <div className='title-context'>Aktualne zapotrzebowanie w Twoim<br></br>regionie - {miasto!==null ? miasto : null}</div>
           <div className='blood-results'>
             <div className='row'>
               <div className='blood'><img src={zRHM} className='blood-img'></img>0 Rh-</div>
