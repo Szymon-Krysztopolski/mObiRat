@@ -1,6 +1,6 @@
-package com.main.backend.features.database.domain;
+package com.main.backend.features.user.domain;
 
-import com.main.backend.features.database.entity.User;
+import com.main.backend.features.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

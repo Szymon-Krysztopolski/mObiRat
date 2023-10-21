@@ -1,4 +1,4 @@
-package com.main.backend.features.database.entity;
+package com.main.backend.features.user.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

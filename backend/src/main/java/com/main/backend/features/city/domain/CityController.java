@@ -1,9 +1,7 @@
-package com.main.backend.features.database.domain;
+package com.main.backend.features.city.domain;
 
-import com.main.backend.features.database.entity.BloodType;
-import com.main.backend.features.database.entity.City;
+import com.main.backend.features.city.entity.City;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +11,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/city")
-public class DatabaseController {
-    DatabaseService service;
+public class CityController {
+    CityService service;
 
     @Autowired
-    public DatabaseController(DatabaseService service) {
+    public CityController(CityService service) {
         this.service = service;
     }
 
