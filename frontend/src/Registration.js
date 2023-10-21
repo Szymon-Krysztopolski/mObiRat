@@ -35,6 +35,34 @@ export class Registration extends React.Component {
     this.setState({ selectedCity: event.target.value });
   }
 
+  handleRegisterClick = (event) => {
+    event.preventDefault();
+    const donationDate = document.querySelector('input[type="date"]').value;
+    console.log(donationDate)
+    fetch('http://localhost:8080/api/user/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        bloodGroup: this.state.selectedBloodGroup,
+        facility: this.state.selectedCity,
+        donationDate: donationDate,
+        notificationPermission: false,
+        notificationEmergencyDemand: false,
+        notificationAvailability: false,
+        notificationFrequency: 0
+      })
+    })
+    .then(data => {
+      this.setState({ selectedBloodGroup: '' });
+      this.setState({ selectedCity: '' });
+      if (data.status ===200) {
+        window.location.href = "/user-panel";
+      }
+
+    });
+  }
   render() {
     const bloodGroups = [
       { id: 'zero_RH_UJEMNY', name: '0 Rh-' },
@@ -81,7 +109,7 @@ export class Registration extends React.Component {
               </div>
             </div>
             <div><div className='button-rows2'>
-              <Link to='/user-panel'>
+              <Link to='/user-panel' onClick={this.handleRegisterClick}>
                 <div className='button-row'>
                   <div className='text-in-button'>
                     Zapisz moje dane
