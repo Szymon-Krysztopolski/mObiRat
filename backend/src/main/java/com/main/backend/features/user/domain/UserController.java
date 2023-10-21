@@ -33,7 +33,16 @@ public class UserController {
     @GetMapping("/test")
     public Details getUserData() {
         User user = userService.getUser(fixedUserId);
-        Integer bloodDemands = cityService.getCityByName(user.getBloodDonationData().getFacility()).getBloodType().mapBloodEnumToValue(user.getBloodDonationData().getBloodGroup());
+        Integer bloodDemands = cityService
+                .getCityByName(user
+                        .getBloodDonationData()
+                        .getFacility()
+                )
+                .getBloodType()
+                .mapBloodEnumToValue(user
+                        .getBloodDonationData()
+                        .getBloodGroup()
+                );
         return new Details(user, bloodDemands);
     }
 }
