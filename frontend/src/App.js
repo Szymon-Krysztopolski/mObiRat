@@ -31,7 +31,7 @@ export class App extends React.Component {
             <div className="App">
                 <div id='rectangle'>
                     <div style={{position: "absolute"}}>
-                        <ToastContainer style={{position: "relative"}} />
+                        <ToastContainer style={{position: "relative", marginLeft:"25px"}} />
                     </div>
                     <img src="Landing_1.png" id='logo'></img>
                     <div id='object-container'>
