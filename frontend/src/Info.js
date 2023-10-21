@@ -11,7 +11,7 @@ export class Info extends React.Component {
     this.state = {
       needs: null
     };
-    fetch('http://localhost:8080/api/city/test', {
+    fetch('http://localhost:8080/api/rckik/test', {
       method: 'GET'
     })
       .then(response => response.json())
@@ -22,18 +22,18 @@ export class Info extends React.Component {
   render() {
     var miasto =null;
     if(this.state.needs!==null){
-       miasto=this.state.needs.name;
+       miasto=this.state.needs.city;
     }
     
     if (this.state.needs !== null) {
-      var aRHP = "krew_l" + this.state.needs.bloodType.a_RH_DODATNI + ".png"
-      var aRHM = "krew_l" + this.state.needs.bloodType.a_RH_UJEMNY + ".png"
-      var bRHP = "krew_l" + this.state.needs.bloodType.b_RH_DODATNI + ".png"
-      var bRHM = "krew_l" + this.state.needs.bloodType.b_RH_UJEMNY + ".png"
-      var zRHP = "krew_l" + this.state.needs.bloodType.zero_RH_DODATNI + ".png"
-      var zRHM = "krew_l" + this.state.needs.bloodType.zero_RH_UJEMNY + ".png"
-      var abRHP = "krew_l" + this.state.needs.bloodType.ab_RH_DODATNI + ".png"
-      var abRHM = "krew_l" + this.state.needs.bloodType.ab_RH_UJEMNY + ".png"
+      var aRHP = "krew_l" + this.state.needs.bloodDemands.a_RH_DODATNI + ".png"
+      var aRHM = "krew_l" + this.state.needs.bloodDemands.a_RH_UJEMNY + ".png"
+      var bRHP = "krew_l" + this.state.needs.bloodDemands.b_RH_DODATNI + ".png"
+      var bRHM = "krew_l" + this.state.needs.bloodDemands.b_RH_UJEMNY + ".png"
+      var zRHP = "krew_l" + this.state.needs.bloodDemands.zero_RH_DODATNI + ".png"
+      var zRHM = "krew_l" + this.state.needs.bloodDemands.zero_RH_UJEMNY + ".png"
+      var abRHP = "krew_l" + this.state.needs.bloodDemands.ab_RH_DODATNI + ".png"
+      var abRHM = "krew_l" + this.state.needs.bloodDemands.ab_RH_UJEMNY + ".png"
       console.log(aRHP)
     }
 
