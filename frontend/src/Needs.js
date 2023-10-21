@@ -1,6 +1,7 @@
 import './Needs.css';
 import './App.css'
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export class Needs extends React.Component{
   constructor(props){
@@ -23,13 +24,13 @@ export class Needs extends React.Component{
     return (
       <div className="App">
         <div id='rectangle'>
-          <img className='arrow-back' src='normal_u20_1.svg'></img>
+          <img className='arrow-back' src='normal_u20_1.svg' onClick={() => window.history.back()}></img>
           <div className='header'>
             <div className='title'>
               mDawca
             </div>
           </div>
-          <div className='title'>Zapotrzebowanie na krew w Polsce</div>
+          <div className='title5'>Zapotrzebowanie na krew w Polsce</div>
           <div className='City'>
           {cities_in && cities_in.map(item => (
             <div key={item.id}>
@@ -50,8 +51,17 @@ export class Needs extends React.Component{
               </div>
             </div>
           ))}
+          
 
           </div>
+          <div className='button-rows2'><Link to='/map' onClick={this.handleRegisterClick}>
+            <div className='button-row'>
+              <div className='text-in-button'>
+                Znajdź najbliższe punkty pobrań
+              </div>
+            </div>
+          </Link></div>
+          
         </div>
       </div>
     );
