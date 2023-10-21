@@ -1,4 +1,4 @@
-package com.main.backend.features.notification;
+package com.main.backend.features.notification.pojo;
 
 import lombok.Data;
 
