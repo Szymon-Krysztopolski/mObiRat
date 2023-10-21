@@ -1,7 +1,11 @@
 package com.main.backend.features.user.domain;
 
 import com.main.backend.features.rckik.domain.RckikService;
+import com.main.backend.features.rckik.entity.BloodDemands;
+import com.main.backend.features.rckik.entity.Rckik;
+import com.main.backend.features.user.entity.BloodGroup;
 import com.main.backend.features.user.entity.User;
+import com.main.backend.features.user.pojo.UserPanel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,18 +37,22 @@ public class UserController {
         return userService.getUser(fixedUserId);
     }
 
-    @GetMapping("/bloodDemands")
-    public Integer getBloodDemands() { // todo fix
+    @GetMapping("/userPanel")
+    public UserPanel getBloodDemands() { // todo fix
         User user = userService.getUser(fixedUserId);
 
-        Integer bloodDemands = null;
-        try {
-            bloodDemands = rckikService
-                    .getRckikByName(user.getRckikCity())
-                    .getBloodDemands()
-                    .checkBloodDemands(user.getBloodGroup());
-        } catch (Exception ignored) {}
+        String userRckik = (user.getRckikCity() == null ? "Poznan" : user.getRckikCity());
+        Rckik rckik = rckikService.getRckikByName(userRckik);
 
-        return bloodDemands;
+        BloodDemands bloodDemands = (rckik.getBloodDemands() == null ? BloodDemands.exampleData() : rckik.getBloodDemands());
+        BloodGroup bloodGroup = (user.getBloodGroup() == null ? BloodGroup.AB_RH_UJEMNY : user.getBloodGroup());
+
+
+        return UserPanel.builder()
+                .bloodGroup(user.getBloodGroup())
+                .rckikFullName(rckik.getFullName())
+                .personalBloodDemands(bloodDemands.checkBloodDemands(bloodGroup))
+                .donationDate(user.getDonationDate())
+                .build();
     }
 }
