@@ -22,6 +22,7 @@ public class City {
 
     public static City getTestObject() {
         return City.builder()
+                .name("Poznan")
                 .rckik("RCkiK w Poznaniu")
                 .bloodType(
                         BloodType.builder()
