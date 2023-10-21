@@ -20,6 +20,11 @@ public class UserController {
         return service.createUser(bloodDonationData);
     }
 
+    @DeleteMapping("/delete")
+    public String deleteUser() {
+        return service.deleteUser();
+    }
+
     @GetMapping("/test")
     public User getTestUser() {
         return service.getUser();
