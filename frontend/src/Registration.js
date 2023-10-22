@@ -9,7 +9,7 @@ export class Registration extends React.Component {
     super(props);
     this.state = {
       selectedBloodGroup: 'ZERO_RH_UJEMNY',
-      selectedCity: 'RCKIK w Białymstoku',
+      selectedCity: 'Bydgoszcz',
       cities: ''
     };
     fetch('http://localhost:8080/api/rckik/all', {
