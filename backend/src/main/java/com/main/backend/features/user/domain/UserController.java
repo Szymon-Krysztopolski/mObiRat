@@ -9,6 +9,11 @@ import com.main.backend.features.user.pojo.UserPanel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -32,7 +37,7 @@ public class UserController {
         return userService.deleteUser(fixedUserId);
     }
 
-    @GetMapping("/test")
+    @GetMapping(value = "/test", produces = "application/json;charset=utf-8")
     public User getTestUser() {
         return userService.getUser(fixedUserId);
     }
@@ -41,18 +46,29 @@ public class UserController {
     public UserPanel getBloodDemands() { // todo fix
         User user = userService.getUser(fixedUserId);
 
-        String userRckik = (user.getRckikCity() == null ? "Poznan" : user.getRckikCity());
+        String userRckik = (user.getRckikCity() == null ? "Poznań" : user.getRckikCity());
         Rckik rckik = rckikService.getRckikByName(userRckik);
 
         BloodDemands bloodDemands = (rckik.getBloodDemands() == null ? BloodDemands.exampleData() : rckik.getBloodDemands());
         BloodGroup bloodGroup = (user.getBloodGroup() == null ? BloodGroup.AB_RH_UJEMNY : user.getBloodGroup());
+        Date userDate = (user.getDonationDate() == null ? Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()) : user.getDonationDate());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(userDate);
+        calendar.add(Calendar.MONTH, 12);
+        Date newDate = calendar.getTime();
 
 
         return UserPanel.builder()
                 .bloodGroup(user.getBloodGroup())
                 .rckikFullName(rckik.getFullName())
+                .rckikCity(rckik.getCity())
                 .personalBloodDemands(bloodDemands.checkBloodDemands(bloodGroup))
-                .donationDate(user.getDonationDate())
+                .donationDate(newDate)
+                .notificationPermission(user.isNotificationPermission())
+                .notificationEmergencyDemand(user.isNotificationEmergencyDemand())
+                .notificationFrequency(user.getNotificationFrequency())
+                .notificationAvailability(user.isNotificationAvailability())
                 .build();
     }
 }
