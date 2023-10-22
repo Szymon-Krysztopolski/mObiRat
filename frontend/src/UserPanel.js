@@ -18,12 +18,55 @@ export class UserPanel extends React.Component {
       })
   }
 
+
+  handleActualizationClick = (event) => {
+    event.preventDefault();
+      fetch('http://localhost:8080/api/user/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          bloodGroup: this.state.panel_info.bloodGroup,
+          rckikCity: this.state.panel_info.rckikCity,
+          donationDate: new Date(new Date(this.state.panel_info.donationDate).getTime() - (12*7*24*60*60*1000)),
+          notificationPermission: false,
+          notificationEmergencyDemand: this.state.panel_info.notificationEmergencyDemand,
+          notificationAvailability: this.state.panel_info.notificationAvailability,
+          notificationFrequency: this.state.period
+        })
+      })
+        .then(data => {
+          console.log(data)
+          if (data.status === 200) {
+            window.location.href = "/registration";
+          }
+
+        });
+    
+  }
+
   handleClick = () => {
     this.setState(prevState => ({
       hidden: !prevState.hidden
     }));
   }
 
+  handleCheckboxChange = (event) => {
+    this.setState({
+      panel_info: {
+        ...this.state.panel_info,
+        [event.target.name]: event.target.checked
+      }
+    });
+  }
+  
+  handleSelectChange = (event) => {
+    this.setState({
+      period: event.target.value
+    });
+  }
+  
   render() {
     const period = [
       { id: 1, name: '1 dzień' },
@@ -53,7 +96,9 @@ export class UserPanel extends React.Component {
           </div>
           <div className='header2'>
             <div className='blood-container'>
-              {this.state.hidden ? <img src={`krew_l${this.state.panel_info.personalBloodDemands}.png`} className='blood'></img> : <img src='krew_l1.png' className='blood2'></img>}
+              {this.state.panel_info===null ? null :(this.state.hidden ? 
+              <img src={`krew_l${this.state.panel_info.personalBloodDemands}.png`} className='blood'></img> : 
+              <img src={`krew_l${this.state.panel_info.personalBloodDemands}.png`} className='blood2'></img>)}
               <div className='blood-text'>
                 {this.state.panel_info === null ? null : (bloodGroups.find(group => group.id === this.state.panel_info.bloodGroup)).name}
               </div>
@@ -83,11 +128,10 @@ export class UserPanel extends React.Component {
               <div className='notifications-details'>
                
                 <div className='row-not2'>
-                  <input type='checkbox'></input>
-                  <div className='row-not-text'>powiadomienie o nagłym zapotrzebowaniu w Twoim regionie</div>
+                <input type='checkbox' name='notificationEmergencyDemand' onChange={this.handleCheckboxChange} checked={this.state.panel_info === null ? null : this.state.panel_info.notificationEmergencyDemand}></input><div className='row-not-text'>powiadomienie o nagłym zapotrzebowaniu w Twoim regionie</div>
                 </div>
                 <div className='row-not2'>
-                  <input type='checkbox'></input>
+                <input type='checkbox' name='notificationAvailability' onChange={this.handleCheckboxChange} checked={this.state.panel_info === null ? null : this.state.panel_info.notificationAvailability}></input>
                   <div className='row-not-text'>powiadomienie o ponownej możliwości oddania krwi</div>
                 </div>
                 <div className='row-not3'>
@@ -114,7 +158,7 @@ export class UserPanel extends React.Component {
             </div>
             <div className='blood-date'>
               <div className='data-information-subtitle'>Data najbliższego możliwego oddania krwi pełnej</div>
-              <div className='data-information-value'>22.10.2023</div>
+              <div className='data-information-value'>{this.state.panel_info===null ? null : new Date(this.state.panel_info.donationDate).toLocaleDateString('en-GB')}</div>
             </div>
 
           </div>
@@ -130,7 +174,7 @@ export class UserPanel extends React.Component {
                 </div>
               </div>
             </Link>
-            <Link to='/registration'>
+            <Link to='/registration' onClick={this.handleActualizationClick}>
               <div className='button-row2'>
                 <div className='text-in-button2'>
                   Zaktualizuj moje dane
