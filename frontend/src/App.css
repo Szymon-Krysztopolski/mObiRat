@@ -140,3 +140,12 @@
     text-align: center;
     line-height: normal;
   }
+
+  @media (max-width: 1000px) {
+    .App{
+      background: grey;
+      height: 851px;
+      width: 393px;
+    }
+        
+}
