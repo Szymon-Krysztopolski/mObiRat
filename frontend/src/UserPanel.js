@@ -67,6 +67,32 @@ export class UserPanel extends React.Component {
     });
   }
   
+  getBloodDemandText() {
+    let bloodDemandText;
+    if(this.state.panel_info!==null){
+    switch(this.state.panel_info.personalBloodDemands) {
+        case 1:
+            bloodDemandText = 'pilna potrzeba krwi';
+            break;
+        case 2:
+            bloodDemandText = 'niski zapas krwi';
+            break;
+        case 3:
+            bloodDemandText = 'średni zapas krwi';
+            break;
+        case 4:
+            bloodDemandText = 'wysoki zapas krwi';
+            break;
+        case 5:
+            bloodDemandText = 'przyjmujemy wyłącznie osocze';
+            break;
+        default:
+            bloodDemandText = '';
+    }
+  }
+    return bloodDemandText;
+}
+
   render() {
     const period = [
       { id: 1, name: '1 dzień' },
@@ -106,7 +132,7 @@ export class UserPanel extends React.Component {
 
             </div>
             <div className='text-area'>
-              <div className='t1'>pilna potrzeba krwi</div>
+              <div className='t1'>{this.getBloodDemandText()}</div>
               <Link to='/needs'><div className='t2'>Aktualne zapotrzebowanie w Twoim regionie</div></Link>
             </div>
 
