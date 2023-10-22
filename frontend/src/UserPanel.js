@@ -8,9 +8,15 @@ export class UserPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: true,
-      period: '7 dni'
+      panel_info: null
     }
+    fetch('http://localhost:8080/api/user/userPanel', {
+      method: 'GET'
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ panel_info: data });
+      })
   }
 
   handleClick = () => {
@@ -20,11 +26,21 @@ export class UserPanel extends React.Component {
   }
 
   render() {
-    const bloodGroups = [
+    const period = [
       { id: 1, name: '1 dzień' },
       { id: 3, name: '3 dni' },
       { id: 7, name: '7 dni' },
       { id: 14, name: '14 dni' }
+    ];
+    let bloodGroups = [
+      { id: 'ZERO_RH_UJEMNY', name: '0 Rh-' },
+      { id: 'ZERO_RH_DODATNI', name: '0 Rh+' },
+      { id: 'A_RH_UJEMNY', name: 'A Rh-' },
+      { id: 'A_RH_DODATNI', name: 'A Rh+' },
+      { id: 'B_RH_UJEMNY', name: 'B Rh-' },
+      { id: 'B_RH_DODATNI', name: 'B Rh+' },
+      { id: 'AB_RH_UJEMNY', name: 'AB Rh-' },
+      { id: 'AB_RH_DODATNI', name: 'AB Rh+' }
     ];
     return (
       <div className="App">
@@ -38,13 +54,16 @@ export class UserPanel extends React.Component {
           </div>
           <div className='header2'>
             <div className='blood-container'>
-            {this.state.hidden ? <img src='krew_l1.png' className='blood'></img> : <img src='krew_l1.png' className='blood2'></img> }
-              <div className='blood-text'>AB Rh+</div>
+              {this.state.hidden ? <img src={`krew_l${this.state.panel_info.personalBloodDemands}.png`} className='blood'></img> : <img src='krew_l1.png' className='blood2'></img>}
+              <div className='blood-text'>
+                {this.state.panel_info === null ? null : (bloodGroups.find(group => group.id === this.state.panel_info.bloodGroup)).name}
+              </div>
+
 
             </div>
             <div className='text-area'>
               <div className='t1'>pilna potrzeba krwi</div>
-              <Link to='/needs'><div className='t2'>Aktualne zapotrzebowanie w regionie Poznań</div></Link>
+              <Link to='/needs'><div className='t2'>Aktualne zapotrzebowanie w Twoim regionie</div></Link>
             </div>
 
           </div>
@@ -55,7 +74,7 @@ export class UserPanel extends React.Component {
               <div className='notification-text'>Moje powiadomienia</div>
               <img src='normal_u128.svg' onClick={this.handleClick}></img>
             </div>
-            : 
+            :
             <div className='notifications-area2'>
               <div className='not-head'>
                 <img src='notification-bell.svg'></img>
@@ -63,38 +82,38 @@ export class UserPanel extends React.Component {
                 <img src='normal_u128.svg' id='arrow-rotate' onClick={this.handleClick} ></img>
               </div>
               <div className='notifications-details'>
-              <div className='row-not1'>
-                <Switch/>
-                <div className='row-not-text'>zezwól na otrzymywanie powiadomień</div>
-              </div>
-              <div className='row-not2'>
-                <input type='checkbox'></input>
-                <div className='row-not-text'>powiadomienie o nagłym zapotrzebowaniu w Twoim regionie</div>
-              </div>
-              <div className='row-not2'>
-                <input type='checkbox'></input>
-                <div className='row-not-text'>powiadomienie o ponownej możliwości oddania krwi</div>
-              </div>
-              <div className='row-not3'>
-                <div className='row-not-text2'>otrzymuj powiadomienia nie częściej niż co</div>
-                <select id="select1" value={this.state.period} onChange={this.handleSelectChange}>
-                    {bloodGroups.map(item => (
+                <div className='row-not1'>
+                  <Switch />
+                  <div className='row-not-text'>zezwól na otrzymywanie powiadomień</div>
+                </div>
+                <div className='row-not2'>
+                  <input type='checkbox'></input>
+                  <div className='row-not-text'>powiadomienie o nagłym zapotrzebowaniu w Twoim regionie</div>
+                </div>
+                <div className='row-not2'>
+                  <input type='checkbox'></input>
+                  <div className='row-not-text'>powiadomienie o ponownej możliwości oddania krwi</div>
+                </div>
+                <div className='row-not3'>
+                  <div className='row-not-text2'>otrzymuj powiadomienia nie częściej niż co</div>
+                  <select id="select1" value={this.state.period} onChange={this.handleSelectChange}>
+                    {period.map(item => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))}
                   </select>
-              </div>
+                </div>
               </div>
             </div>}
           <div className='data-information'>
             <div className='data-information-title'>Twoje dane</div>
             <div className='Blood-group'>
               <div className='data-information-subtitle'>Grupa krwi</div>
-              <div className='data-information-value'>AB Rh+</div>
+              <div className='data-information-value'>{this.state.panel_info === null ? null : (bloodGroups.find(group => group.id === this.state.panel_info.bloodGroup)).name}</div>
               <hr></hr>
             </div>
             <div className='faculty'>
               <div className='data-information-subtitle'>Domyślna placówka RCK</div>
-              <div className='data-information-value'>RCK Poznań</div>
+              <div className='data-information-value'>{this.state.panel_info===null ? null : this.state.panel_info.rckikFullName}</div>
               <hr></hr>
             </div>
             <div className='blood-date'>
