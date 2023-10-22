@@ -22,8 +22,12 @@ public class Rckik {
 
     public static Rckik getTestObject() {
         return Rckik.builder()
-                .city("Poznan")
-                .fullName("RCkiK w Poznaniu")
+                .city("Bydgoszcz")
+                .fullName("RCKiK w Bydgoszczy")
+                .address("ul. Ks. Markwarta 8")
+                .zipCodeCity("85-015 Bydgoszcz")
+                .phone("tel. (52) 322 18 71 do 74")
+                .website("www.rckik-bydgoszcz.com.pl")
                 .bloodDemands(
                         BloodDemands.builder()
                                 .ZERO_RH_UJEMNY(1)

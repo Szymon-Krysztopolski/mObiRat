@@ -17,7 +17,7 @@ public class RckikService {
     }
 
     public Rckik getRckikByName(String name) {
-        return repository.findById(name).orElseThrow(null);
+        return repository.findById(name).orElseGet(Rckik::getTestObject);
     }
 
     public List<Rckik> getAllRckik() {
