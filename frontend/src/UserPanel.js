@@ -2,7 +2,6 @@ import './UserPanel.css';
 import './App.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Switch } from 'react-switch-input';
 
 export class UserPanel extends React.Component {
   constructor(props) {
@@ -63,10 +62,6 @@ export class UserPanel extends React.Component {
                 <img src='normal_u128.svg' id='arrow-rotate' onClick={this.handleClick} ></img>
               </div>
               <div className='notifications-details'>
-              <div className='row-not1'>
-                <Switch/>
-                <div className='row-not-text'>zezwól na otrzymywanie powiadomień</div>
-              </div>
               <div className='row-not2'>
                 <input type='checkbox'></input>
                 <div className='row-not-text'>powiadomienie o nagłym zapotrzebowaniu w Twoim regionie</div>
