@@ -15,6 +15,12 @@ import java.util.Date;
 public class UserPanel {
     private BloodGroup bloodGroup;
     private String rckikFullName;
+    private String rckikCity;
     private Date donationDate;
     private Integer personalBloodDemands;
+
+    private boolean notificationPermission;
+    private boolean notificationEmergencyDemand;
+    private boolean notificationAvailability;
+    private Integer notificationFrequency;
 }
