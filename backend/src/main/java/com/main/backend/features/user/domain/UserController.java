@@ -55,7 +55,7 @@ public class UserController {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(userDate);
-        calendar.add(Calendar.MONTH, 12);
+        calendar.add(Calendar.WEEK_OF_YEAR, 12);
         Date newDate = calendar.getTime();
 
 
