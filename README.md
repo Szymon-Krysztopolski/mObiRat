@@ -11,6 +11,6 @@ Project team:
 * [Marta Bodzak](https://www.linkedin.com/in/marta-bodzak/) - Frontend
 * [Szymon Krysztopolski](https://www.linkedin.com/in/szymon-krysztopolski/) - Backend & Data
 
-!(./mHack-visual.png)
+![](./mHack-visual.png)
 
 © Jan Chlebek, Marta Bodzak, Szymon Krysztopolski
